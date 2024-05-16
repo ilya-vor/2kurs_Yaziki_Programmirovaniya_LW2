@@ -33,7 +33,7 @@ class MainWindow(QMainWindow):
 
         self.__scroll_label_tangent_equation_at_point_bottom = ScrollLabel(self, 490, 270, 360, 50, 255, 0, 0)
 
-        self.__calculator = clc.Calculator(-10, 10, 1000)
+        self.__calculator = clc.Calculator(1, 20, 100)
 
         self.__initUI()
 

@@ -11,7 +11,7 @@ class Calculator:
             raise Exception('[ERROR] Неверно задано количество точек')
 
         self.__bin_operators = ['^', '*', '/', '+', '-']
-        self.__un_operators = ['~', 'cos', 'sin']
+        self.__un_operators = ['~', 'cos', 'sin','ln']
         self.__operators = self.__bin_operators + self.__un_operators
 
         self.__range = (start_x, end_x)
@@ -113,7 +113,7 @@ class Calculator:
         stack = []
         for elem in expr:
             if elem == 'x':
-                if not x:
+                if not x and x != 0.0:
                     raise Exception("[ERROR] Отсутствует значение для параметра x")
                 operand = float(x)
                 stack.append(operand)
@@ -142,6 +142,9 @@ class Calculator:
                 case "cos":
                     stack.append(math.cos(operand_2))
                     continue
+                case "ln":
+                    stack.append(math.log(operand_2,2.718))
+                    continue
 
             try:
                 operand_1 = stack.pop()
@@ -150,7 +153,9 @@ class Calculator:
 
             match elem:
                 case "^":
-                    stack.append(operand_1 ** operand_2)
+                    base = operand_1
+                    exponent = operand_2
+                    stack.append(base ** exponent)
                 case "+":
                     stack.append(operand_1 + operand_2)
                 case "-":
@@ -314,7 +319,10 @@ class Calculator:
 
     def __diff_pow(self, operand_1: str, operand_2: str):
         if 'x' in operand_2:
-            expr = f"{operand_1} {operand_2} ^ {math.log(float(operand_1), math.e)} * {self.__diff(operand_2)} *"
+            if 'x' in operand_1:
+                expr = f"{operand_1} {operand_2} ^ {operand_1} ln * {self.__diff(operand_2)} *"
+            else:
+                expr = f"{operand_1} {operand_2} ^ {math.log(float(operand_1), math.e)} * {self.__diff(operand_2)} *"
         else:
             expr = f"{operand_2} {operand_1} {operand_2} 1 - ^ * {self.__diff(operand_1)} *"
 
@@ -363,6 +371,12 @@ class Calculator:
         return operand_stack
 
     def __diff(self, expression_rpn: str):
+        """
+        if expression_rpn == "x x ^":
+        return "x x ^ x ln * x x ^ +"
+        """
+
+
         expr = expression_rpn.split()
         derivative_of_an_expression_rpn = ""
         elem = expr[-1]

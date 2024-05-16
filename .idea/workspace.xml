@@ -4,26 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f44e3608-e894-4dfa-8440-80c74f47c5e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/LW2_Yaziki_Programmirovaniya.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calculator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_button.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_expression_line_edit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_label.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_main_window.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_plot_graphics_view.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class_scroll_label.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/old/diff.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/old/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/old/postfix.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/old/scratch.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/old/untitled.ui" afterDir="false" />
+    <list default="true" id="f44e3608-e894-4dfa-8440-80c74f47c5e6" name="Changes" comment="Last">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/calculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class_main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/class_main_window.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +46,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "O:/PycharmProjects/LW2_Yaziki_Programmirovaniya"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -109,18 +97,34 @@
       <option name="presentableId" value="Default" />
       <updated>1712919756897</updated>
     </task>
+    <task id="LOCAL-00001" summary="Last">
+      <option name="closed" value="true" />
+      <created>1715801410650</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715801410650</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Last" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/class_main_window.py</url>
-          <line>96</line>
-          <option name="timeStamp" value="38" />
+          <url>file://$PROJECT_DIR$/calculator.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/calculator.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
