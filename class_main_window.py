@@ -33,7 +33,13 @@ class MainWindow(QMainWindow):
 
         self.__scroll_label_tangent_equation_at_point_bottom = ScrollLabel(self, 490, 270, 360, 50, 255, 0, 0)
 
-        self.__calculator = clc.Calculator(1, 20, 100)
+        self.__lbl_left_expression_in = Label(self, 490, 325, 300, 50, 34, 139, 34, "Введите область определения:")
+
+        self.__lbl_left_expression_in = Label(self, 490, 385, 100, 50, 34, 139, 34, "Начало:")
+        self.__input_expression_line_edit1 = ExpressionLineEdit(self, 600, 385, 50, 50)
+
+        self.__lbl_left_expression_in = Label(self, 700, 385, 100, 50, 34, 139, 34, "Конец:")
+        self.__input_expression_line_edit2 = ExpressionLineEdit(self, 810, 385, 50, 50)
 
         self.__initUI()
 
@@ -43,6 +49,8 @@ class MainWindow(QMainWindow):
     def __initUI(self):
         self.setWindowTitle("User function graph")
         self.setFixedSize(870, 490)
+        self.__input_expression_line_edit1.setText("-10")
+        self.__input_expression_line_edit2.setText("10")
         self.setStyleSheet(
             """
                 background-color: rgb(255, 255, 255);
@@ -91,30 +99,55 @@ class MainWindow(QMainWindow):
                           self.__calculator.get_y_coords_tangent_equation_rpn(),
                           255, 0, 0, 2)
 
-        self.__scroll_label_tangent_equation_at_point_top.setText(f"Уравнение касательной в точке {round(parameter_a,2)}")
+        self.__scroll_label_tangent_equation_at_point_top.setText(f"Уравнение касательной в точке {round(parameter_a,5)}")
         self.__scroll_label_tangent_equation_at_point_bottom.setText(self.__calculator.get_tangent_equation_in())
 
     def __calc(self):
+        start_x = int(self.__input_expression_line_edit1.finish())
+        end_x = int(self.__input_expression_line_edit2.finish())
+
+
         expression_in = self.__input_expression_line_edit.finish()
         if not expression_in:
             return -1
         self.__clear()
         self.__input_expression_line_edit.setText(expression_in)
-        try:
-            self.__calculator.calc(expression_in)
+        if True:
+            try:
+                self.__calculator = clc.Calculator(start_x, end_x, 10000)
+                self.__calculator.calc(expression_in)
 
-            self.__graph.plot(self.__calculator.get_x_coords(),
-                              self.__calculator.get_y_coords_derivative_of_an_expression_rpn(),
-                              0, 0, 205, 6)
-            self.__graph.plot(self.__calculator.get_x_coords(),
-                              self.__calculator.get_y_coords_expression_rpn(),
-                              34, 139, 34, 10)
+                self.__graph.plot(self.__calculator.get_x_coords(),
+                                  self.__calculator.get_y_coords_derivative_of_an_expression_rpn(),
+                                  0, 0, 205, 6)
+                self.__graph.plot(self.__calculator.get_x_coords(),
+                                  self.__calculator.get_y_coords_expression_rpn(),
+                                  34, 139, 34, 10)
 
-            self.__scroll_label_right_derivative_of_an_expression_in.setText(
-                self.__calculator.get_derivative_of_an_expression_in())
+                self.__scroll_label_right_derivative_of_an_expression_in.setText(
+                    self.__calculator.get_derivative_of_an_expression_in())
 
-            self.__input_expression_line_edit.success()
+                self.__input_expression_line_edit.success()
 
-        except Exception as e:
-            print(e)
-            self.__input_expression_line_edit.error()
+            except Exception as e:
+                try:
+                    start_x = 0.1
+                    self.__calculator = clc.Calculator(start_x, end_x, 10000)
+                    self.__calculator.calc(expression_in)
+
+                    self.__graph.plot(self.__calculator.get_x_coords(),
+                                      self.__calculator.get_y_coords_derivative_of_an_expression_rpn(),
+                                      0, 0, 205, 6)
+                    self.__graph.plot(self.__calculator.get_x_coords(),
+                                      self.__calculator.get_y_coords_expression_rpn(),
+                                      34, 139, 34, 10)
+
+                    self.__scroll_label_right_derivative_of_an_expression_in.setText(
+                        self.__calculator.get_derivative_of_an_expression_in())
+
+                    self.__input_expression_line_edit.success()
+
+                except Exception as e:
+                    print(e)
+                    self.__input_expression_line_edit.error()
+

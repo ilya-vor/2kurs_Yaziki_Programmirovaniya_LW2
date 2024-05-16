@@ -320,7 +320,7 @@ class Calculator:
     def __diff_pow(self, operand_1: str, operand_2: str):
         if 'x' in operand_2:
             if 'x' in operand_1:
-                expr = f"{operand_1} {operand_2} ^ {operand_1} ln * {self.__diff(operand_2)} *"
+                expr = f"{operand_1} {operand_2} ^ {operand_1} ln * {self.__diff(operand_2)} * {operand_1} {operand_2} ^ {self.__diff(operand_2)} * +"
             else:
                 expr = f"{operand_1} {operand_2} ^ {math.log(float(operand_1), math.e)} * {self.__diff(operand_2)} *"
         else:
@@ -435,7 +435,7 @@ class Calculator:
                 continue
 
             try:
-                elem = str(round(float(elem),2))
+                elem = str(round(float(elem),5))
                 stack.append(elem)
                 continue
             except ValueError:
@@ -454,13 +454,13 @@ class Calculator:
                     if operand == '0.0' or operand == '-0.0':
                         stack.append('0')
                     else:
-                        stack.append(str(round(float(operand),2)))
+                        stack.append(str(round(float(operand),5)))
                     continue
                 except ValueError:
                     pass
 
                 try:
-                    number_2 = round(float(operand_2),2)
+                    number_2 = round(float(operand_2),5)
                     match operator:
                         case '+', '-':
                             if number_2 == 0.0 or number_2 == -0.0:
@@ -504,7 +504,7 @@ class Calculator:
                     pass
 
                 try:
-                    number_1 = round(float(operand_1),2)
+                    number_1 = round(float(operand_1),5)
                     match operator:
                         case '+':
                             if number_1 == 0.0 or number_1 == -0.0:
@@ -555,7 +555,7 @@ class Calculator:
                     if operand == '0.0' or operand == '-0.0':
                         stack.append('0')
                     else:
-                        stack.append(str(round(float(operand),2)))
+                        stack.append(str(round(float(operand),5)))
                     continue
                 except ValueError:
                     pass
